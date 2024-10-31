@@ -1,0 +1,12 @@
+[package]
+name = "md5-tool"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.91"
+iced = "0.13.1"
+itertools = "0.13.0"
+md5 = "0.7.0"
+strum = "0.26.3"
+strum_macros = "0.26.4"
