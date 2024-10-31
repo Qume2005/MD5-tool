@@ -14,4 +14,4 @@ Cargo.lock
 *.pdb
 
 #Macos
-.DS_store
+.DS_Store
