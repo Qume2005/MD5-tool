@@ -3,7 +3,6 @@ mod message;
 mod error;
 mod update;
 mod view;
-mod lib; 
 mod subscription;
 
 pub use state::Target;

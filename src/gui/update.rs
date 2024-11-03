@@ -1,6 +1,7 @@
 use iced::Task;
 
-use super::{lib::{calculate_md5, select_file}, message::Message, state::State, subscription::on_event, Target};
+use super::super::core::{calculate_md5, select_file};
+use super::{message::Message, state::State, subscription::on_event, Target};
 
 pub fn update(state: &mut State, message: Message) -> Task<Message> {
     match message {

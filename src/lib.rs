@@ -1,4 +1,5 @@
 mod gui;
+mod core;
 
 use gui::{subscription, update, view};
 
