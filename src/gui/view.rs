@@ -52,7 +52,7 @@ fn edit_mode_view(state: &State) -> Element<Message> {
         .align_x(Horizontal::Center)
         .push(
             TextInput::new("input...", state.get_target().as_str())
-                .on_input(Message::SetTarget)
+                .on_input(|text| Message::SetTarget(super::Target::Text(text)))
                 .on_submit(Message::DisableEditMode)
                 .size(48)
         )

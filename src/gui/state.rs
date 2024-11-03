@@ -2,7 +2,7 @@ use std::{fs::File, io::Read, path::PathBuf};
 
 use anyhow::{Context, Result};
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub enum Target {
     File(PathBuf),
     Text(String),

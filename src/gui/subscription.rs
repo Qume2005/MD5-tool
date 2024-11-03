@@ -21,6 +21,7 @@ fn on_keyboard(event: keyboard::Event) -> Option<Message> {
         keyboard::Event::KeyPressed { physical_key, .. } => match physical_key {
             Physical::Code(code) => match code {
                 Code::Enter => Some(Message::EnterKeyPressed),
+                Code::ArrowRight => Some(Message::ArrowRightPressed),
                 _ => None,
             },
             _ => None,

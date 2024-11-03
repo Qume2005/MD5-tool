@@ -1,6 +1,6 @@
 use iced::Task;
 
-use super::{lib::calculate_md5, message::Message, state::State, subscription::on_event, Target};
+use super::{lib::{calculate_md5, select_file}, message::Message, state::State, subscription::on_event, Target};
 
 pub fn update(state: &mut State, message: Message) -> Task<Message> {
     match message {
@@ -22,8 +22,9 @@ pub fn update(state: &mut State, message: Message) -> Task<Message> {
             state.set_result(md5);
             Task::none()
         }
-        Message::SetTarget(text) => {
-            state.set_target(Target::Text(text));
+        Message::SetTarget(target) => {
+            state.set_target(target);
+            //update(state, Message::CalculateMD5)
             Task::none()
         }
         Message::WindowResize => {
@@ -42,6 +43,16 @@ pub fn update(state: &mut State, message: Message) -> Task<Message> {
         Message::DisableEditMode => {
             state.disable_edit_mode();
             Task::none()
+        }
+        Message::ArrowRightPressed => {
+            state.disable_edit_mode();
+            Task::perform(
+                select_file(), 
+                |path| path.map_or(
+                    Message::SetTarget(Target::Text(String::new())), 
+                    |path| Message::SetTarget(Target::File(path))
+                )
+            )
         }
     }
 }
