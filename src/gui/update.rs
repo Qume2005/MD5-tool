@@ -53,6 +53,7 @@ pub fn update(state: &mut State, message: Message) -> Task<Message> {
                     |path| Message::SetTarget(Target::File(path))
                 )
             )
+                .chain(update(state, Message::CalculateMD5))
         }
     }
 }
